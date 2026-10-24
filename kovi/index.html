@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0a10">
+  <meta name="description" content="KOVI — projeto de bot para Discord com personalização visual, moderação, automações e recursos inteligentes para comunidades.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KOVI — Seu servidor. Sua identidade.">
+  <meta property="og:description" content="Conheça o projeto KOVI, um bot para personalização e gerenciamento de comunidades Discord.">
+  <meta property="og:url" content="https://susuukipy.github.io/zuerebot-site/kovi/">
+  <title>KOVI — Bot para Discord</title>
+  <style>
+    :root{color-scheme:dark;--bg:#09090e;--panel:#14121c;--border:#302b3e;--text:#f6f4fc;--muted:#a9a4b8;--accent:#a47bff;--accent2:#ecbaff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid #d7b8ff;outline-offset:4px;border-radius:6px}
+    .wrap{width:min(1120px,calc(100% - 44px));margin:auto}.ambient{position:absolute;z-index:-1;pointer-events:none;filter:blur(90px);border-radius:50%;opacity:.34}
+    .a1{width:450px;height:450px;right:-140px;top:100px;background:#6d39c7}.a2{width:300px;height:300px;left:-180px;top:460px;background:#512c86}
+    header{position:relative;z-index:1;border-bottom:1px solid rgba(190,172,228,.12);background:rgba(10,9,16,.72);backdrop-filter:blur(18px)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-size:1.25rem;font-weight:900;letter-spacing:.19em}
+    .logo{width:39px;height:39px;border-radius:12px;background:linear-gradient(145deg,#d8a6ff,#6e45d2);display:grid;place-items:center;box-shadow:0 0 28px #9a66f84d;color:#160c24;font-size:23px;font-weight:900;letter-spacing:0}
+    nav{display:flex;align-items:center;gap:28px}nav a{font-size:.91rem;color:#d4d0e1;transition:color .2s}nav a:hover{color:white}
+    .small-btn{padding:10px 16px;border:1px solid #66548d;border-radius:10px;background:#201a2f;font-weight:650}
+    .hero{position:relative;isolation:isolate;padding:116px 0 104px;text-align:center}.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid #53436e;border-radius:50px;background:#1a1525;color:#d7c5f4;font-size:.82rem;font-weight:650;letter-spacing:.02em}
+    .dot{height:7px;width:7px;border-radius:50%;background:#c6a5ff;box-shadow:0 0 14px #b58cff}
+    h1{font-size:clamp(3.3rem,9vw,7rem);letter-spacing:-.075em;line-height:1.02;margin:24px 0 19px;font-weight:850}
+    .gradient{background:linear-gradient(100deg,#fff 10%,#d8b3ff 45%,#9675ff 95%);background-clip:text;-webkit-background-clip:text;color:transparent}
+    .hero p{font-size:clamp(1.03rem,2vw,1.2rem);color:var(--muted);max-width:660px;margin:0 auto 30px}
+    .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:13px 22px;border-radius:12px;font-weight:700;font-size:.94rem;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}
+    .primary{color:#170e26;background:linear-gradient(120deg,#e4b9ff,#a88aff);box-shadow:0 8px 35px #9b62e329}.secondary{border:1px solid #554b69;background:#17141f}
+    .section{padding:70px 0}.eyebrow{text-transform:uppercase;letter-spacing:.2em;color:#bc9df3;font-size:.75rem;font-weight:800}.section h2{font-size:clamp(1.8rem,4vw,2.65rem);letter-spacing:-.04em;line-height:1.18;margin:12px 0}.lead{color:var(--muted);max-width:630px;margin:0 0 34px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.card{background:linear-gradient(145deg,#191522,#111017);border:1px solid var(--border);border-radius:18px;padding:27px;min-height:195px;transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-4px);border-color:#7e62ae}.ico{display:inline-grid;place-items:center;background:#30233f;width:46px;height:46px;border-radius:12px;font-size:1.35rem;margin-bottom:15px}.card h3{font-size:1.09rem;margin:0 0 8px}.card p{font-size:.94rem;color:var(--muted);margin:0}
+    .banner{display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid #54416c;background:radial-gradient(circle at 80% 30%,#3a2554,#191421 64%);border-radius:22px;padding:34px 38px}.banner h2{margin:0 0 8px;font-size:1.65rem}.banner p{margin:0;color:#c5bdd3;max-width:600px}
+    footer{border-top:1px solid #302b3c;padding:32px 0 42px;color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:20px;flex-wrap:wrap}.footer-links a:hover{color:#fff}
+    .notice{color:#a8a1b8;font-size:.85rem;margin-top:24px}.notice strong{color:#d9c5f9}
+    @media(max-width:780px){nav{gap:14px}nav a:not(.small-btn){display:none}.hero{padding:88px 0 76px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.banner{flex-direction:column;align-items:flex-start;padding:28px}.section{padding:54px 0}}
+    @media(max-width:520px){.wrap{width:min(100% - 32px,1120px)}.grid{grid-template-columns:1fr}.card{min-height:auto}.hero{padding:72px 0 66px}.actions .btn{width:100%}nav .small-btn{font-size:.8rem;padding:9px 11px}.nav{height:67px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.btn{transition:none}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav"><a href="./" class="brand" aria-label="KOVI — página inicial"><span class="logo" aria-hidden="true">K</span>KOVI</a><nav aria-label="Navegação principal"><a href="#recursos">Recursos</a><a href="#projeto">Projeto</a><a href="privacidade/" class="small-btn">Privacidade ↗</a></nav></div></header>
+<main>
+<section class="hero"><div class="ambient a1"></div><div class="ambient a2"></div><div class="wrap">
+  <span class="pill"><span class="dot"></span> PROJETO EM DESENVOLVIMENTO</span>
+  <h1>Seu servidor.<br><span class="gradient">Sua identidade.</span></h1>
+  <p>Conheça o KOVI: um projeto de bot para Discord pensado para transformar a aparência, a organização e a experiência das comunidades — com controle, criatividade e recursos inteligentes.</p>
+  <div class="actions"><a href="#recursos" class="btn primary">Conhecer recursos ↗</a><a href="mailto:koviofficial@proton.me?subject=Contato%20KOVI" class="btn secondary">Entrar em contato</a></div>
+  <div class="notice">Discord • Personalização • Automação • IA</div>
+</div></section>
+<section class="section" id="recursos"><div class="wrap">
+  <span class="eyebrow">O que estamos construindo</span>
+  <h2>Uma nova forma de cuidar da sua comunidade.</h2>
+  <p class="lead">O KOVI reúne ideias de personalização visual, organização e assistência para administradores. Os recursos abaixo são planejados e podem mudar durante o desenvolvimento.</p>
+  <div class="grid">
+    <article class="card"><span class="ico" aria-hidden="true">🎨</span><h3>Identidade visual</h3><p>Emojis, figurinhas, ícones de cargos, banners e imagens para deixar cada servidor com seu próprio estilo.</p></article>
+    <article class="card"><span class="ico" aria-hidden="true">🧩</span><h3>Reforma de servidor</h3><p>Organização de categorias, canais, cargos e permissões com prévia e confirmação antes de mudanças importantes.</p></article>
+    <article class="card"><span class="ico" aria-hidden="true">🤖</span><h3>Assistência com IA</h3><p>Experiências de conversa e sugestões inteligentes para apoiar tarefas criativas e administrativas.</p></article>
+    <article class="card"><span class="ico" aria-hidden="true">🛡️</span><h3>Moderação</h3><p>Ferramentas planejadas para ajudar equipes a administrar comunidades com mais controle e segurança.</p></article>
+    <article class="card"><span class="ico" aria-hidden="true">🎫</span><h3>Atendimento</h3><p>Painéis interativos, tickets e organização de solicitações com privacidade e acompanhamento.</p></article>
+    <article class="card"><span class="ico" aria-hidden="true">🖼️</span><h3>Integração visual</h3><p>Seleção de imagens de fontes autorizadas, pré-visualização e escolha de onde aplicá-las no servidor.</p></article>
+  </div>
+</div></section>
+<section class="section" id="projeto"><div class="wrap">
+  <div class="banner"><div><span class="eyebrow">Transparência</span><h2>Feito para evoluir com você.</h2><p>O KOVI está em desenvolvimento. Informações sobre tratamento de dados e contato estão disponíveis em nossa Política de Privacidade.</p></div><a href="privacidade/" class="btn primary">Política de Privacidade ↗</a></div>
+</div></section>
+</main>
+<footer><div class="wrap footer-row"><div>© 2026 <strong>KOVI</strong> · Equipe KOVI<br><span>Projeto independente; não afiliado ao Discord ou Pinterest.</span></div><div class="footer-links"><a href="privacidade/">Privacidade</a><a href="mailto:koviofficial@proton.me">koviofficial@proton.me</a></div></div></footer>
+</body>
+</html>
