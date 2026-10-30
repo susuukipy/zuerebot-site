@@ -255,6 +255,23 @@ local function card(parent, height, titleValue, desc, order)
 end
 local hero = card(home,210,nil,nil,1)
 hero.ClipsDescendants=true
+local heroGlow=frame(hero,"AccentGlow",accent,.32)
+heroGlow.Size=UDim2.new(1,0,0,2)
+heroGlow.ZIndex=6
+local heroScan=frame(hero,"Scanline",accent,.76)
+heroScan.Position=UDim2.fromOffset(0,0)
+heroScan.Size=UDim2.new(1,0,0,2)
+heroScan.ZIndex=7
+local scanTween=TweenService:Create(heroScan,TweenInfo.new(3.2,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut,-1,true),{Position=UDim2.new(0,0,1,-2)})
+local function setDecorations()
+    heroGlow.Visible=prefs.glow
+    heroScan.Visible=prefs.scan
+    if prefs.scan and prefs.motion then
+        scanTween:Play()
+    else
+        scanTween:Pause()
+    end
+end
 local heroBackground=frame(hero,"HeroBackground",colors.bg)
 heroBackground.Size=UDim2.fromScale(1,1)
 corner(heroBackground,13)
@@ -362,6 +379,7 @@ local function addToggle(parent,titleValue,subtitle,key,order)
             for _,line in ipairs(crossLines) do line.Visible=prefs.crosshair end
         end
         if key=="artwork" then bgImage.Visible=prefs.artwork and bgImage.Image~="" end
+        if key=="scan" or key=="glow" or key=="motion" then setDecorations() end
     end)
     update()
 end
@@ -576,6 +594,9 @@ local function updateTheme()
     float.TextColor3=accent
     for _,line in ipairs(crossLines) do line.BackgroundColor3=accent end
     crosshair.BackgroundColor3=accent
+    heroGlow.BackgroundColor3=accent
+    heroScan.BackgroundColor3=accent
+    setDecorations()
     for tab,b in pairs(navButtons) do
         if tab==activePage then b.BackgroundColor3=accent b.TextColor3=colors.bg end
     end
@@ -684,6 +705,7 @@ end
 local function closeEverything()
     if not alive then return end
     alive=false
+    pcall(function() scanTween:Cancel() end)
     for _,tw in pairs(activeTweens) do pcall(function() tw:Cancel() end) end
     for _,connection in ipairs(connections) do pcall(function() connection:Disconnect() end) end
     pcall(function() gui:Destroy() end)
